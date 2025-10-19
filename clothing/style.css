@@ -43,7 +43,7 @@ main section .bottom {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 3rem;
   padding: 1.5 rem;
 }
 main section .bottom .text {

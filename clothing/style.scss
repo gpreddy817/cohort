@@ -40,7 +40,7 @@ main {
     .bottom{
         background-color: rgb(55, 55, 55);
         border-radius: 10px;
-        @include flex-column(1.5rem);
+        @include flex-column(3rem);
         padding: 1.5 rem;
         .text{
             @include flex-column(0.7rem);
