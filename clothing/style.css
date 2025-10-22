@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  background-color: rgb(232, 23, 23);
+  background-color: black;
 }
 
 main {
@@ -68,4 +68,23 @@ main section .bottom .text button {
   outline: none;
   padding: 0.7rem 1rem;
   border-radius: 0.5rem;
+}
+
+@media (min-width: 900px) {
+  main {
+    background-color: rgb(8, 8, 8);
+  }
+  main section {
+    flex-direction: row;
+  }
+  main section .top, main section .bottom {
+    width: 50%;
+  }
+  main section .bottom {
+    justify-content: space-between;
+    padding: 3rem;
+  }
+  main section .bottom .text {
+    font-size: 3rem;
+  }
 }/*# sourceMappingURL=style.css.map */

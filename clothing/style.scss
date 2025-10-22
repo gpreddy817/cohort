@@ -13,7 +13,7 @@ html{
     color: white;
 }
 body{
-    background-color: rgb(232, 23, 23);
+    background-color: black;
   }
 @mixin flex-column($gap: 0rem) {
     display: flex;
@@ -23,7 +23,6 @@ body{
 main {
     width:100%;
     @include flex-column(0rem);
-    ++++68556
     section{
         width:100%;
         @include flex-column(2rem);
@@ -64,4 +63,30 @@ main {
         }
     }
     }
-  }
+}
+
+@media (min-width:900px){
+    main{
+        background-color: rgb(8, 8, 8);
+
+        section{
+            flex-direction: row;
+            .top, .bottom{
+                width: 50%;
+            }
+            .bottom{
+            justify-content: space-between;
+            padding: 3rem;
+
+            .text{
+                h1{
+                    font-size: 3.5 rem;
+                    }
+                p{
+                    width: 80%;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
