@@ -1,0 +1,109 @@
+/* --- 1. General & Reset Styles --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Black background to match the image style */
+    color: white;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #e50914; /* Red color for Power Rangers vibe */
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+
+/* --- 2. Grid Layout --- */
+.power-rangers-grid {
+    display: grid;
+    /* Creates a 6-column layout with equal width for each item */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 15px; /* Spacing between the images */
+    max-width: 1400px; /* Adjust as needed for your screen size */
+    margin: 0 auto; /* Center the grid on the page */
+}
+
+.season-item {
+    position: relative; /* CRUCIAL: Allows the pop-up to be positioned absolutely relative to this item */
+    overflow: visible; /* Ensure the pop-up isn't cut off */
+    transition: transform 0.2s; /* Subtle scale effect on hover */
+}
+
+.season-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the item on hover */
+}
+
+.season-item img {
+    width: 100%;
+    /* Use a fixed aspect ratio or height if you want perfect squares/rectangles */
+    height: auto; 
+    display: block;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+    border-radius: 5px;
+}
+
+
+/* --- 3. Pop-up (Tooltip) Styling and Logic --- */
+.popup-info {
+    /* Initial state: Hidden and positioned */
+    position: absolute;
+    bottom: 105%; /* Position 5% above the image */
+    left: 50%;
+    transform: translateX(-50%); /* Center the pop-up horizontally */
+    
+    /* Appearance */
+    background-color: #e50914; /* Red pop-up background */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 250px; 
+    min-width: max-content;
+    text-align: center;
+
+    /* Transition for smooth appearance */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; 
+    
+    z-index: 10; /* Ensures the pop-up appears on top of other elements */
+    
+    /* Initial position offset for smoother animation */
+    transform: translate(-50%, 10px); 
+}
+
+.popup-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+}
+
+.popup-info p {
+    margin: 2px 0;
+    font-size: 0.9em;
+}
+
+/* THE HOVER EFFECT: When the parent (.season-item) is hovered, show the child (.popup-info) */
+.season-item:hover .popup-info {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0); /* Move it up to its final position */
+}
+
+/* --- Media Query for smaller screens --- */
+@media (max-width: 1000px) {
+    .power-rangers-grid {
+        /* Change to 4 columns on smaller screens */
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
+@media (max-width: 600px) {
+    .power-rangers-grid {
+        /* Change to 3 columns on mobile */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .popup-info {
+        width: 150px; /* Make pop-ups smaller for mobile */
+    }
+}
